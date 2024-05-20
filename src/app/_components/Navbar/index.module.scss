@@ -1,0 +1,149 @@
+.popWrap {
+  position: fixed;
+  top: 5rem;
+  left: 0;
+  z-index: calc(infinity);
+  width: 100%;
+  background: var(--ui-background-opacity);
+  backdrop-filter: blur(7px);
+
+  .popInde {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    padding: 20px;
+    margin: 0 auto;
+
+    .topLink {
+      display: flex;
+      justify-content: flex-start;
+      padding: 8px 1.3rem;
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid #000;
+
+      @media (width <= 768px) {
+        padding: 8px 1rem;
+      }
+
+      &:hover {
+        color: #206cc9;
+        transition: all 0.3s;
+      }
+
+      &:focus-visible,
+      &:focus {
+        outline: 2px solid rgb(204 163 0);
+      }
+
+      &.active {
+        font-weight: 700;
+        color: #242434;
+        background-color: #d7edff;
+      }
+
+      .topItem {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+      }
+    }
+  }
+}
+
+.inter {
+  height: 5rem;
+}
+
+.wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 5rem;
+  background-color: var(--ui-background);
+
+  .inde {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    padding: 20px 10px;
+    margin: 0 auto;
+
+    .logo {
+      color: inherit;
+      text-decoration: none;
+
+      h1 {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        margin: 0;
+        font-size: 1.5rem;
+      }
+    }
+
+    .menuItems {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      font-size: 15px;
+
+      @media (width <= 768px) {
+        gap: 10px;
+      }
+
+      .invisibleOnMob {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        padding-right: 1rem;
+        border-right: 1px solid #000;
+
+        @media (width <= 768px) {
+          display: none;
+        }
+      }
+
+      .topLink {
+        display: flex;
+        justify-content: center;
+        padding: 8px 1.3rem;
+        color: inherit;
+        text-decoration: none;
+        background-color: var(--ui-background);
+        border: none;
+        border-radius: var(--radius-pill);
+
+        @media (width <= 768px) {
+          padding: 8px 1rem;
+        }
+
+        &:hover {
+          font-weight: 700;
+          color: #206cc9;
+          transition: all 0.3s;
+        }
+
+        &:focus-visible,
+        &:focus {
+          outline: 2px solid rgb(204 163 0);
+        }
+
+        &.active {
+          font-weight: 700;
+          color: #242434;
+          background-color: #d7edff;
+        }
+
+        .topItem {
+          display: flex;
+          gap: 5px;
+        }
+      }
+    }
+  }
+}
