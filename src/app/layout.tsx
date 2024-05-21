@@ -34,7 +34,7 @@ export default function RootLayout({
         className={clsx(notoJp.variable, inter.variable, styles.layoutBase)}
       >
         <Navbar showContent={true} />
-        {children}
+        <main className={styles.main}>{children}</main>
         <Footer />
       </body>
     </html>

@@ -2,6 +2,7 @@
 // This file is generated automatically by the typed-scss-modules library
 export type Styles = {
   layoutBase: string
+  main: string
 }
 
 export type ClassNames = keyof Styles
