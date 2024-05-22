@@ -2,14 +2,10 @@
 // This file is generated automatically by the typed-scss-modules library
 export type Styles = {
   active: string
-  inde: string
-  inter: string
-  invisibleOnMob: string
-  logo: string
-  menuItems: string
+  popInde: string
+  popWrap: string
   topItem: string
   topLink: string
-  wrap: string
 }
 
 export type ClassNames = keyof Styles

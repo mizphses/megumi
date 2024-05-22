@@ -1,19 +1,22 @@
 'use client'
 import clsx from 'clsx'
 import Link from 'next/link'
-import { useState } from 'react'
+import { ReactNode, useState } from 'react'
 import style from './index.module.scss'
 import { IconClose, IconMenu } from '../../../components/Icons/generated'
 import { Button } from '@/components/Button'
+import { PopupInde } from './PopupInde'
 
-type MenuContent = {
+export type MenuContent = {
   title: string
   link: string
   icon?: React.ReactNode
+  visible?: boolean
 }
 
 type NavbarProps = {
   showContent?: boolean
+  menuInde?: ReactNode
 }
 
 export const Navbar: React.FC<NavbarProps> = (props) => {
@@ -22,12 +25,13 @@ export const Navbar: React.FC<NavbarProps> = (props) => {
     setIsOpenMenu(!isOpenMenu)
   }
 
-  const { showContent } = props
+  const { showContent, menuInde } = props
 
   const menuContent: MenuContent[] = [
     {
       title: 'ホーム',
       link: '/',
+      visible: true,
     },
   ]
 
@@ -41,14 +45,14 @@ export const Navbar: React.FC<NavbarProps> = (props) => {
           <nav className={style.menuItems}>
             <div className={style.invisibleOnMob}>
               {menuContent.map((menu, index) => {
-                return (
+                return menu.visible ? (
                   <Link href={menu.link} key={index}>
                     <Button size="sm" className={clsx(style.topLink)}>
                       {menu.icon}
                       <span>{menu.title}</span>
                     </Button>
                   </Link>
-                )
+                ) : null
               })}
             </div>
             <Button
@@ -64,42 +68,19 @@ export const Navbar: React.FC<NavbarProps> = (props) => {
           </nav>
         </div>
       </div>
-      {isOpenMenu && (
-        <div>
-          <PopupInde menuContent={menuContent} buttonClick={handleToggleMenu} />
-        </div>
+      {menuInde != undefined && isOpenMenu ? (
+        <div>{menuInde}</div>
+      ) : (
+        isOpenMenu && (
+          <div>
+            <PopupInde
+              menuContent={menuContent}
+              buttonClick={handleToggleMenu}
+            />
+          </div>
+        )
       )}
       {showContent && <div className={style.inter} />}
     </>
-  )
-}
-
-type DetailedMenuProps = {
-  menuContent: MenuContent[]
-  buttonClick: () => void
-}
-
-const PopupInde: React.FC<DetailedMenuProps> = (props) => {
-  const { menuContent } = props
-  return (
-    <div className={style.popWrap}>
-      <div className={style.popInde}>
-        {menuContent.map((menu, index) => {
-          return (
-            <Link
-              href={menu.link}
-              key={index}
-              className={style.topLink}
-              onClick={props.buttonClick}
-            >
-              <div>
-                {menu.icon}
-                <span>{menu.title}</span>
-              </div>
-            </Link>
-          )
-        })}
-      </div>
-    </div>
   )
 }
