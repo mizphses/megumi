@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import style from './index.module.scss'
 import { IconClose, IconMenu } from '../../../components/Icons/generated'
+import { Button } from '@/components/Button'
 
 type MenuContent = {
   title: string
@@ -41,16 +42,17 @@ export const Navbar: React.FC<NavbarProps> = (props) => {
             <div className={style.invisibleOnMob}>
               {menuContent.map((menu, index) => {
                 return (
-                  <Link href={menu.link} key={index} className={style.topLink}>
-                    <div className={style.topItem}>
+                  <Link href={menu.link} key={index}>
+                    <Button size="sm" className={clsx(style.topLink)}>
                       {menu.icon}
                       <span>{menu.title}</span>
-                    </div>
+                    </Button>
                   </Link>
                 )
               })}
             </div>
-            <button
+            <Button
+              size="sm"
               className={clsx(style.topLink, isOpenMenu && style.active)}
               onClick={handleToggleMenu}
             >
@@ -58,7 +60,7 @@ export const Navbar: React.FC<NavbarProps> = (props) => {
                 {isOpenMenu ? <IconClose size={20} /> : <IconMenu size={20} />}
                 <span>メニュー</span>
               </div>
-            </button>
+            </Button>
           </nav>
         </div>
       </div>

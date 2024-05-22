@@ -1,5 +1,12 @@
-@use '../styles/breakpoint';
-
 body {
   background-color: var(--ui-background);
+
+  * {
+    transition: all var(--transition-time);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 }

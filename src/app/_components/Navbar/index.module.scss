@@ -19,17 +19,11 @@
       display: flex;
       justify-content: flex-start;
       padding: 8px 1.3rem;
-      color: inherit;
       text-decoration: none;
       border-bottom: 1px solid #000;
 
       @media (width <= 768px) {
         padding: 8px 1rem;
-      }
-
-      &:hover {
-        color: #206cc9;
-        transition: all 0.3s;
       }
 
       &:focus-visible,
@@ -114,18 +108,16 @@
         padding: 8px 1.3rem;
         color: inherit;
         text-decoration: none;
-        background-color: var(--ui-background);
+        background-color: transparent;
         border: none;
-        border-radius: var(--radius-pill);
+        border-radius: var(--radius-md);
 
         @media (width <= 768px) {
           padding: 8px 1rem;
         }
 
         &:hover {
-          font-weight: 700;
-          color: #206cc9;
-          transition: all 0.3s;
+          background-color: var(--action-hover);
         }
 
         &:focus-visible,
@@ -136,7 +128,7 @@
         &.active {
           font-weight: 700;
           color: #242434;
-          background-color: #d7edff;
+          background-color: var(--action-hover-pressed);
         }
 
         .topItem {
