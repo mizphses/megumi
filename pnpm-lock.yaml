@@ -28,6 +28,9 @@ devDependencies:
   '@svgr/plugin-jsx':
     specifier: ^8.0.1
     version: 8.1.0(@svgr/core@8.1.0)
+  '@types/gtag.js':
+    specifier: ^0.0.19
+    version: 0.0.19
   '@types/node':
     specifier: ^20
     version: 20.12.11
@@ -726,6 +729,10 @@ packages:
       '@types/node': 20.12.11
     dev: true
     optional: true
+
+  /@types/gtag.js@0.0.19:
+    resolution: {integrity: sha512-KHoDzrf9rSd0mooKN576PjExpdk/XRrNu4RQnmigsScSTSidwyOUe9kDrHz9UPKjiBrx2QEsSkexbJSgS0j72w==}
+    dev: true
 
   /@types/json5@0.0.29:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}

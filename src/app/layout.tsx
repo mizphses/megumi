@@ -8,6 +8,7 @@ import { Navbar } from './_components/Navbar'
 import './globals.scss'
 import styles from './layout.module.scss'
 import type { Metadata } from 'next'
+import { CookieBanner, GoogleTagManager } from '@/components/gtm'
 
 const inter = Inter({
   subsets: ['latin-ext'],
@@ -30,12 +31,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
+      <head>
+        <GoogleTagManager />
+      </head>
       <body
         className={clsx(notoJp.variable, inter.variable, styles.layoutBase)}
       >
         <Navbar showContent={true} />
         <main className={styles.main}>{children}</main>
         <Footer />
+        <CookieBanner />
       </body>
     </html>
   )
